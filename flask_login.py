@@ -157,5 +157,47 @@ def page_not_found(e):
 @app.errorhandler(500)
 def Internal_Server_Error(e): 
     return render_template('500.html')#500 Internal Server Error
+
+# @login_manager.request_loader
+# def request_loader(request):
+# 	crewid = request.form.get('InputAD')
+# 	password = request.form.get('InputPassword')
+# 	cursor.execute("SELECT name , crewid FROM departmentuser WHERE crewid =  %(username)s AND password = %(pw)d",{'username':crewid, 'pw':password})
+
+# 	name  = cursor.fetchall()
+# 	crewid  = cursor.fetchall()
+# 	if len(name)==0:
+# 		return 
+# 	user = User()
+# 	user.id = crewid
+# 	# DO NOT ever store passwords in plaintext and always compare password
+# 	# hashes using constant-time comparison!
+# 	user.is_authenticated = True
+# 	print('user.is_authenticated',user.is_authenticated)
+# 	return user
+
+#users = {'Me': {'password': 'myself'}}
+# @app.route('/set_cookie/?<string:name>/?<string:crewid>')#/foo/<int:a>/<int:b>
+# def set_cookie(name , crewid):
+# 	print(name)
+# 	#print(request.form.get('name'))
+# 	resp = make_response("success")
+# 	resp.set_cookie("name", name)
+# 	resp.set_cookie("name2", crewid)
+# 	return redirect(url_for('index'))
+
+# @app.route('/set_session/?<string:name>/?<string:crewid>')#/foo/<int:a>/<int:b>
+# def set_cookie(name , crewid):
+# 	session['name'] = name
+# 	session['crewid'] = crewid
+# 	print('nfsd',name,type(name))
+# 	#如果設置了 session.permanent 為 True，那麽過期時間是31天
+# 	session.permanent = True
+# 	return redirect(url_for('index'))
+
+# @app.route('/login')
+# def login():
+# 	hi()
+# 	return render_template('login.html')
 if __name__ == '__main__': 
     app.run(debug=True)
