@@ -7,7 +7,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 import time
 from datetime import timedelta
 import os
-from connecttodb import conn
+#from connecttodb import conn
 import socket
 
 app = Flask(__name__) 
@@ -22,7 +22,13 @@ login_manager.session_protection = "strong"
 login_manager.login_view = 'login'
 login_manager.login_message = 'please login '
 
+import pymssql
 
+conn = pymssql.connect(host='XXX.XXX.XXX.XXX:XXXX' ,
+user = 'username',
+password ='password',
+database = 'login_db'
+)
 class User(UserMixin):
     pass
 
